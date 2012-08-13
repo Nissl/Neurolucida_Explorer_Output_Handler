@@ -1,0 +1,53 @@
+This is a set of scripts that processes Neurolucida/Neurolucida Explorer Output more 
+efficiently. Right now, Neurolucida Explorer returns a large number of spreadsheets for
+one cell at a time. At a minimum, this output requires the user to open hundreds of 
+spreadsheets and copy-paste repeatedly. This is really slow if you have hundreds of cells 
+and there is a large chance of human error creeping in. Some of these spreadsheets require 
+additional processing to get at data features of significant interest (e.g. averages, maximum 
+values). This is a major reason most Golgi, dye injection, and glial morphology papers 
+typically report only a few parameters. This significantly limits the available information 
+on cell morphology in neuroanatomy and functional papers.
+
+Much of the data produced by these scripts will be presented in an upcoming paper, 
+Morgan and Amaral 2013 (fingers crossed!)
+
+I'm a self-taught programmer currently learning professional code presentation standards. 
+I'd love to get feedback on my code!
+I elected to leave these files in a modular format so people can select the analyses 
+they are interested in. The commented text at the top of each module should explain the 
+input and output.
+I probably don't have time to create a GUI for this, so feel free to do so.
+
+Also, if you work with MicroBrightField, I'd love to see these analyses incorporated into 
+the Neurolucida software. Get in touch with me any time!
+
+##################################################################
+Setting up your computer to run these programs
+This program is written in Python 2.6-2.7. It also uses the xlwt addon library to make Excel 
+spreadsheets.
+
+Step 1: Install Python 2.7.3 from here: http://www.python.org/download/releases/2.7.3/
+On the page, select the Windows MSI installer (x86 if you have 32-bit Windows installed,
+x86-64 if you have 64-bit Windows installed.)
+I suggest using the default option, which will install Python to c:/Python27
+
+Step 2: Install the xlwt library from here: http://pypi.python.org/pypi/xlwt/
+Use the program WinRAR to unzip the files to a directory
+Go to "run" in the start menu and type cmd
+Type cd c:\directory_where_xlwt_was_unzipped_to
+Type setup.py install
+
+Step 3: Copy this program into the c:/Python27 directory
+You can also put it into another directory that is added to the correct PATH.
+
+##################################################################
+Section 2: file preparation for this program (and related scripts)
+
+Open Neurolucida Explorer 
+Open Neurolucida file for each cell of interest
+For each cell, select all relevant dendrites and the soma 
+Select all possible analyses that return spreadsheet data (should return 15 spreadsheets in 
+NLE 9.0, circa 2012)
+Right click and save each spreadsheet as text file with format "casename region cellnumber 
+analysisname.txt"
+For example, "M32-09 Lateral 1 cell bodies.txt"
